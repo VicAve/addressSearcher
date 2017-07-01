@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <h2> Result </h2>
+
+  <p>The address searcher</p>
+  <table>
+    <tr><td>Addresses matched</td>
+      {% for reg in the_results %}
+         {% if reg['reqAddr'] %}
+            <tr><td style="background-color: green">{{ reg['address'] }} Exists!! at: Long = {{ reg['lng'] }}, Lat = {{ reg['lat'] }}</td></tr>
+         {% else %}
+           <tr><td style="background-color: red">{{ reg['address']  }} Doesn't exist!! </td></tr>
+         {% endif %}
+
+
+
+      {% endfor %}
+    </tr>
+  </table>
+
+{% endblock %}

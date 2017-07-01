@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<script type="text/javascript">
+
+
+  function disableText() {
+     var address = document.getElementById('address');
+     var file = document.getElementById('file');
+     var form = document.getElementById('form');
+     address.value = 'file_mode';
+     address.disabled = true;
+     form.action = '/upload'
+     form.enctype = 'multipart/form-data'
+  }
+
+</script>
+  <h2> The Address Verificator </h2>
+
+  <form method='POST' action='/search' id='form'>
+    <p>Please, enter your address to confirm that exists:</p>
+    <input name='address' id='address' type='text' width='60'>
+    <p>or... up load a JSON File: </p>
+    <input type="file" name="fileAddress" id='file' value="" onClick='disableText()'>
+    <input placeholder='Search' type='submit' >
+  </form>
+
+
+{% endblock %}

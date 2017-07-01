@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+  <h2> Result </h2>
+
+  <p>The address to search was: {{ the_address }}</p>
+  <table>
+    <tr><td>No addresses matched: {{ the_number }}</td>
+      {% for reg in the_results %}
+        <tr><td>{{ reg['address'] }} Exists! at {{ reg['lng'] }} {{ reg['lat'] }} </td></tr>
+      {% endfor %}
+    </tr>
+  </table>
+
+{% endblock %}
